@@ -1,1 +1,18 @@
-<p>movie-form works!</p>
+<!--<p>{{movie.title}}</p>-->
+
+<form [formGroup]="movieForm" (ngSubmit)="saveForm()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Description</label>
+    <textarea type="text" id="desc" class="form-control" formControlName="description"></textarea>
+  </div>
+
+  <button class="btn btn-info" [disabled]="formDisable()">
+    <span *ngIf="id">Update</span>
+    <span *ngIf="!id">Create</span>
+  </button>
+</form>

@@ -1,3 +1,14 @@
-<div *ngFor="let movie of movies" (click)="movieClicked(movie)">
-  <h3>{{ movie.title }}</h3>
+<div class="container">
+  <div *ngFor="let movie of movies" class="movie-item row">
+    <div (click)="movieClicked(movie)" class="col-xs-10 movie-title">{{ movie.title | titlecase}}
+      <span class="movie-desc">{{movie.description}}</span>
+    </div>
+    <fa name="pencil" (click)="editMovie(movie)" class="col-xs-1"></fa>
+    <fa name="trash" (click)="deleteMovie(movie)" class="col-xs-1"></fa>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mt-4">
+      <button (click)="newMovie()" class="btn btn-primary" style="">New Movie</button>
+    </div>
+  </div>
 </div>

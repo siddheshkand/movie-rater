@@ -1,14 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {AppComponent} from './app.component';
+import {AuthModule} from './auth/auth.module';
+import {MainModule} from './main/main.module';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
-import { MainModule } from './main/main.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'movies' }
-]
+  {path: '', pathMatch: 'full', redirectTo: 'auth'}
+];
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ const routes: Routes = [
     MainModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    AngularFontAwesomeModule,
+    ReactiveFormsModule,
   ],
   exports: [
     RouterModule,
@@ -27,4 +31,5 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

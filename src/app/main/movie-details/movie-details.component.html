@@ -1,1 +1,20 @@
-<p>movie-details works!</p>
+<div *ngIf="movie" class="box-shadow">
+  <h3>{{movie?.title}}</h3>
+<div class="rating_avg">
+  <fa name="star" [ngClass]="{'orange':movie.avg_rating > 0}"></fa>
+  <fa name="star" [ngClass]="{'orange':movie.avg_rating > 1}"></fa>
+  <fa name="star" [ngClass]="{'orange':movie.avg_rating > 2}"></fa>
+  <fa name="star" [ngClass]="{'orange':movie.avg_rating > 3}"></fa>
+  <fa name="star" [ngClass]="{'orange':movie.avg_rating > 4}"></fa>
+</div>
+
+  <p>{{movie?.description}}</p>
+  <p>{{movie?.avg_rating | number:'1.2-2'}} / 5 ({{movie?.nos_of_rating}})</p>
+
+  <div id="rate-container">
+    <h2>Rate Movie</h2>
+    <fa name="star" *ngFor="let rate of [1,2,3,4,5]" (mouseenter)="rateHover(rate)" (mouseleave)="rateHovered =0"
+        [ngClass]="{'purple':rateHovered >=rate}" (click)="rateClicked(rate)"></fa>
+
+  </div>
+</div>
