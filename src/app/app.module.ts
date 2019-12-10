@@ -7,6 +7,7 @@ import {AuthModule} from './auth/auth.module';
 import {MainModule} from './main/main.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'auth'}
@@ -28,7 +29,10 @@ const routes: Routes = [
   exports: [
     RouterModule,
   ],
-  providers: [],
+
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
